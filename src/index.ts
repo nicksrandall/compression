@@ -1,31 +1,33 @@
 import zlib, { Zlib, ZlibOptions, BrotliOptions } from 'zlib';
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage, ServerResponse as HttpServerResponse } from 'http';
 import { Transform } from 'stream';
 import compressible from 'compressible';
 import onHeaders from 'on-headers';
 import vary from 'vary';
 import Accept from '@hapi/accept';
 
+export type ServerResponse = HttpServerResponse & {
+  flush?: () => void;
+  _header?: { [key: string]: any };
+  _implicitHeader?: () => void;
+};
+
 export type RequestListener = (
   req: IncomingMessage,
-  res: ServerResponse & {
-    flush?: () => void;
-    _header?: { [key: string]: any };
-    _implicitHeader?: () => void;
-  }
+  res: ServerResponse
 ) => void;
 
 type Listener = (...args: any[]) => void;
 type EventType = 'close' | 'drain' | 'error' | 'finish' | 'pipe' | 'unpipe';
 
 export interface CompressionFilter {
-  (req: IncomingMessage, res: ServerResponse): boolean;
+  (req?: IncomingMessage, res?: ServerResponse): boolean;
 }
 
 export type Options = ZlibOptions &
   BrotliOptions & {
     threshold?: number;
-    filter?: (req: IncomingMessage, res: ServerResponse) => boolean;
+    filter?: CompressionFilter;
   };
 
 const preferredEncodings = ['gzip', 'deflate', 'identity'];
@@ -39,7 +41,7 @@ const cacheControlNoTransformRegExp = /(?:^|,)\s*?no-transform\s*?(?:,|$)/;
 const Compression = (
   opts: Options = {}
 ): ((handler: RequestListener) => RequestListener) => {
-  const filter = opts.filter || shouldCompress;
+  const filter = opts.filter ?? shouldCompress;
   if (!opts.params) {
     opts.params = {};
   }
@@ -61,7 +63,7 @@ const Compression = (
       let ended: boolean = false;
       let stream: (Transform & Zlib) | null = null;
       let listeners: [EventType, Listener][] = [];
-      let length: number = 0;
+      let length: number;
 
       const _end = res.end;
       const _on = res.on;
@@ -116,7 +118,7 @@ const Compression = (
         listener: (...args: any[]) => void
       ) {
         if (!listeners || type !== 'drain') {
-          return _on.call(this, type, listener);
+          return _on.call(res, type, listener);
         }
 
         if (stream) {
@@ -126,7 +128,7 @@ const Compression = (
         // buffer listeners for future stream
         listeners.push([type, listener]);
 
-        return this;
+        return res;
       };
 
       function nocompress() {
@@ -151,8 +153,11 @@ const Compression = (
         vary(res, 'Accept-Encoding');
 
         // content-length below threshold
-        const contentLength = res.getHeader('Content-Length') as number;
-        if (contentLength < threshold || length < threshold) {
+        const contentLength = Number(res.getHeader('Content-Length'));
+        if (
+          (!Number.isNaN(contentLength) && contentLength < threshold) ||
+          length < threshold
+        ) {
           nocompress();
           return;
         }
@@ -195,32 +200,28 @@ const Compression = (
             stream = zlib.createDeflate(opts);
         }
 
-        if (!stream) {
-          nocompress();
-          return;
-        }
-
         // add buffered listeners to stream
-        addListeners(stream, stream.on, listeners);
+        addListeners(stream!, stream!.on, listeners);
 
         // header fields
         res.setHeader('Content-Encoding', method);
         res.removeHeader('Content-Length');
 
-        stream.on('data', (chunk) => {
+        stream!.on('data', chunk => {
           if (_write.call(res, chunk, 'utf8') === false) {
             stream!.pause();
           }
         });
 
-        stream.on('end', (...args: Parameters<typeof _end>) => {
-          _end.apply(res, args);
+        stream!.on('end', () => {
+          _end.apply(res);
         });
 
         _on.call(res, 'drain', () => {
           stream!.resume();
         });
       });
+
       handler(req, res);
     };
   };
