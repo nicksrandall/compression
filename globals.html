@@ -1,0 +1,465 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@nicksrandall/compression</title>
+	<meta name="description" content="Documentation for @nicksrandall/compression">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@nicksrandall/compression</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>@nicksrandall/compression</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/compressionfilter.html" class="tsd-kind-icon">Compression<wbr>Filter</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#eventtype" class="tsd-kind-icon">Event<wbr>Type</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#listener" class="tsd-kind-icon">Listener</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#middleware" class="tsd-kind-icon">Middleware</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#options" class="tsd-kind-icon">Options</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#cachecontrolnotransformregexp" class="tsd-kind-icon">cache<wbr>Control<wbr>NoTransform<wbr>Reg<wbr>Exp</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#preferredencodings" class="tsd-kind-icon">preferred<wbr>Encodings</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#compression" class="tsd-kind-icon">Compression</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#addlisteners" class="tsd-kind-icon">add<wbr>Listeners</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#chunklength" class="tsd-kind-icon">chunk<wbr>Length</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#shouldcompress" class="tsd-kind-icon">should<wbr>Compress</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#shouldtransform" class="tsd-kind-icon">should<wbr>Transform</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#tobuffer" class="tsd-kind-icon">to<wbr>Buffer</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="eventtype" class="tsd-anchor"></a>
+					<h3>Event<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Event<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"close"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"drain"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"error"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"finish"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pipe"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unpipe"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L19">index.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="listener" class="tsd-anchor"></a>
+					<h3>Listener</h3>
+					<div class="tsd-signature tsd-kind-icon">Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L18">index.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="middleware" class="tsd-anchor"></a>
+					<h3>Middleware</h3>
+					<div class="tsd-signature tsd-kind-icon">Middleware<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>_header<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>_implicitHeader<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">; </span>flush<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L9">index.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>_header<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>_implicitHeader<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">; </span>flush<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>req: <span class="tsd-signature-type">IncomingMessage</span></h5>
+											</li>
+											<li>
+												<h5>res: <span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>_header<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>_implicitHeader<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">; </span>flush<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> }</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="options" class="tsd-anchor"></a>
+					<h3>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ZlibOptions</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">BrotliOptions</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>filter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">; </span>threshold<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L25">index.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="cachecontrolnotransformregexp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> cache<wbr>Control<wbr>NoTransform<wbr>Reg<wbr>Exp</h3>
+					<div class="tsd-signature tsd-kind-icon">cache<wbr>Control<wbr>NoTransform<wbr>Reg<wbr>Exp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = /(?:^|,)\s*?no-transform\s*?(?:,|$)/</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L37">index.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="preferredencodings" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> preferred<wbr>Encodings</h3>
+					<div class="tsd-signature tsd-kind-icon">preferred<wbr>Encodings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;gzip&#x27;, &#x27;deflate&#x27;, &#x27;identity&#x27;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L31">index.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="compression" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Compression</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">Compression<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">?: </span><a href="globals.html#options" class="tsd-signature-type">Options</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#middleware" class="tsd-signature-type">Middleware</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L39">index.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="globals.html#options" class="tsd-signature-type">Options</a><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="globals.html#middleware" class="tsd-signature-type">Middleware</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="addlisteners" class="tsd-anchor"></a>
+					<h3>add<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Listeners<span class="tsd-signature-symbol">(</span>stream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ServerResponse</span>, on<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a>, cb<span class="tsd-signature-symbol">: </span><a href="globals.html#listener" class="tsd-signature-type">Listener</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span>, listeners<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a><span class="tsd-signature-symbol">, </span><a href="globals.html#listener" class="tsd-signature-type">Listener</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L218">index.ts:218</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>stream: <span class="tsd-signature-type">Transform</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ServerResponse</span></h5>
+								</li>
+								<li>
+									<h5>on: <span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a>, cb<span class="tsd-signature-symbol">: </span><a href="globals.html#listener" class="tsd-signature-type">Listener</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a>, cb<span class="tsd-signature-symbol">: </span><a href="globals.html#listener" class="tsd-signature-type">Listener</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>e: <a href="globals.html#eventtype" class="tsd-signature-type">EventType</a></h5>
+														</li>
+														<li>
+															<h5>cb: <a href="globals.html#listener" class="tsd-signature-type">Listener</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>listeners: <span class="tsd-signature-symbol">[</span><a href="globals.html#eventtype" class="tsd-signature-type">EventType</a><span class="tsd-signature-symbol">, </span><a href="globals.html#listener" class="tsd-signature-type">Listener</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="chunklength" class="tsd-anchor"></a>
+					<h3>chunk<wbr>Length</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">chunk<wbr>Length<span class="tsd-signature-symbol">(</span>chunk<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, encoding<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BufferEncoding</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L252">index.ts:252</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>chunk: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>encoding: <span class="tsd-signature-type">BufferEncoding</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="shouldcompress" class="tsd-anchor"></a>
+					<h3>should<wbr>Compress</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">should<wbr>Compress<span class="tsd-signature-symbol">(</span>_req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L232">index.ts:232</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_req: <span class="tsd-signature-type">IncomingMessage</span></h5>
+								</li>
+								<li>
+									<h5>res: <span class="tsd-signature-type">ServerResponse</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="shouldtransform" class="tsd-anchor"></a>
+					<h3>should<wbr>Transform</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">should<wbr>Transform<span class="tsd-signature-symbol">(</span>_req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L242">index.ts:242</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_req: <span class="tsd-signature-type">IncomingMessage</span></h5>
+								</li>
+								<li>
+									<h5>res: <span class="tsd-signature-type">ServerResponse</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="tobuffer" class="tsd-anchor"></a>
+					<h3>to<wbr>Buffer</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Buffer<span class="tsd-signature-symbol">(</span>chunk<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, encoding<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BufferEncoding</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nicksrandall/compression/blob/4032e7e/src/index.ts#L228">index.ts:228</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>chunk: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>encoding: <span class="tsd-signature-type">BufferEncoding</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals current ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/compressionfilter.html" class="tsd-kind-icon">Compression<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#eventtype" class="tsd-kind-icon">Event<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#listener" class="tsd-kind-icon">Listener</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#middleware" class="tsd-kind-icon">Middleware</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#options" class="tsd-kind-icon">Options</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#cachecontrolnotransformregexp" class="tsd-kind-icon">cache<wbr>Control<wbr>NoTransform<wbr>Reg<wbr>Exp</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#preferredencodings" class="tsd-kind-icon">preferred<wbr>Encodings</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#compression" class="tsd-kind-icon">Compression</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#addlisteners" class="tsd-kind-icon">add<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#chunklength" class="tsd-kind-icon">chunk<wbr>Length</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#shouldcompress" class="tsd-kind-icon">should<wbr>Compress</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#shouldtransform" class="tsd-kind-icon">should<wbr>Transform</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#tobuffer" class="tsd-kind-icon">to<wbr>Buffer</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
