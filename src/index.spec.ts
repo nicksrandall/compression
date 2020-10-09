@@ -1,7 +1,7 @@
 import http, { IncomingMessage, ServerResponse } from 'http';
 import request from 'supertest';
 import test from 'ava';
-import compression, { Options } from './index';
+import Compression, { Options } from './index';
 
 test('should skip HEAD', (t) => {
   const server = createServer(
@@ -200,9 +200,10 @@ function createServer(
   opts: Options,
   fn: (req: IncomingMessage, res: ServerResponse) => void
 ) {
-  const _compression = compression(opts);
-  return http.createServer((req, res) => {
-    _compression(req, res);
-    fn(req, res);
-  });
+  const _compression = Compression(opts);
+  return http.createServer(
+    _compression((req, res) => {
+      fn(req, res);
+    })
+  );
 }
