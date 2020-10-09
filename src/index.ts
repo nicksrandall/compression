@@ -207,7 +207,7 @@ const Compression = (
         res.setHeader('Content-Encoding', method);
         res.removeHeader('Content-Length');
 
-        stream!.on('data', chunk => {
+        stream!.on('data', (chunk) => {
           if (_write.call(res, chunk, 'utf8') === false) {
             stream!.pause();
           }

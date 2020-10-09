@@ -5,7 +5,7 @@ import test from 'ava';
 import crypto from 'crypto';
 import Compression, { Options, ServerResponse } from './index';
 
-test('should skip HEAD', t => {
+test('should skip HEAD', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -22,7 +22,7 @@ test('should skip HEAD', t => {
     .then(() => t.pass());
 });
 
-test('should skip unknown accept-encoding', t => {
+test('should skip unknown accept-encoding', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -39,7 +39,7 @@ test('should skip unknown accept-encoding', t => {
     .then(() => t.pass());
 });
 
-test('should skip if content-encoding already set', t => {
+test('should skip if content-encoding already set', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -57,7 +57,7 @@ test('should skip if content-encoding already set', t => {
     .then(() => t.pass());
 });
 
-test('should set Vary', t => {
+test('should set Vary', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -74,7 +74,7 @@ test('should set Vary', t => {
     .then(() => t.pass());
 });
 
-test('should set Vary even if Accept-Encoding is not set', t => {
+test('should set Vary even if Accept-Encoding is not set', (t) => {
   const server = createServer(
     { threshold: 1000 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -91,7 +91,7 @@ test('should set Vary even if Accept-Encoding is not set', t => {
     .then(() => t.pass());
 });
 
-test('should not set Vary if Content-Type does not pass filter', t => {
+test('should not set Vary if Content-Type does not pass filter', (t) => {
   const server = createServer(
     undefined,
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -107,7 +107,7 @@ test('should not set Vary if Content-Type does not pass filter', t => {
     .then(() => t.pass());
 });
 
-test('should set Vary for HEAD request', t => {
+test('should set Vary for HEAD request', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -123,7 +123,7 @@ test('should set Vary for HEAD request', t => {
     .then(() => t.pass());
 });
 
-test('should transfer chunked', t => {
+test('should transfer chunked', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -139,7 +139,7 @@ test('should transfer chunked', t => {
     .then(() => t.pass());
 });
 
-test('should remove Content-Length for chunked', t => {
+test('should remove Content-Length for chunked', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -156,7 +156,7 @@ test('should remove Content-Length for chunked', t => {
     .then(() => t.pass());
 });
 
-test('should work with encoding arguments', t => {
+test('should work with encoding arguments', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -174,8 +174,8 @@ test('should work with encoding arguments', t => {
     .then(() => t.pass());
 });
 
-test('should allow writing after close', t => {
-  return new Promise(resolve => {
+test('should allow writing after close', (t) => {
+  return new Promise((resolve) => {
     const server = createServer(
       { threshold: 0 },
       (_req: IncomingMessage, res: ServerResponse) => {
@@ -195,7 +195,7 @@ test('should allow writing after close', t => {
   }).then(() => t.pass());
 });
 
-test('should back-pressure when compressed', t => {
+test('should back-pressure when compressed', (t) => {
   return new Promise((resolve, reject) => {
     let buf: any;
     let cb = after(2, resolve, reject);
@@ -256,7 +256,7 @@ test('should back-pressure when compressed', t => {
   }).then(() => t.pass());
 });
 
-test.skip('should back-pressure when uncompressed', t => {
+test.skip('should back-pressure when uncompressed', (t) => {
   return new Promise((resolve, reject) => {
     let buf: any;
     let cb = after(2, resolve, reject);
@@ -267,7 +267,7 @@ test.skip('should back-pressure when uncompressed', t => {
       {
         filter: (): boolean => {
           return false;
-        }
+        },
       },
       (_req: IncomingMessage, res: ServerResponse) => {
         resp = res as typeof resp;
@@ -320,7 +320,7 @@ test.skip('should back-pressure when uncompressed', t => {
   }).then(() => t.pass());
 });
 
-test('should transfer large bodies', t => {
+test('should transfer large bodies', (t) => {
   const buf = Buffer.alloc(1000000, '.');
   const server = createServer(
     { threshold: 0 },
@@ -340,7 +340,7 @@ test('should transfer large bodies', t => {
     .then(() => t.pass());
 });
 
-test('should transfer large bodies with multiple writes', t => {
+test('should transfer large bodies with multiple writes', (t) => {
   const len = 40000;
   const buf = Buffer.alloc(len, '.');
   const server = createServer(
@@ -364,7 +364,7 @@ test('should transfer large bodies with multiple writes', t => {
     .then(() => t.pass());
 });
 
-test('should compress when streaming without a content-length', t => {
+test('should compress when streaming without a content-length', (t) => {
   const server = createServer(
     { threshold: 1000 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -383,7 +383,7 @@ test('should compress when streaming without a content-length', t => {
     .then(() => t.pass());
 });
 
-test('should consider res.end() as 0 length', t => {
+test('should consider res.end() as 0 length', (t) => {
   const server = createServer(
     { threshold: 1 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -400,7 +400,7 @@ test('should consider res.end() as 0 length', t => {
     .then(() => t.pass());
 });
 
-test('should return false writing after end', t => {
+test('should return false writing after end', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -418,7 +418,7 @@ test('should return false writing after end', t => {
     .then(() => t.pass());
 });
 
-test('flush should always be present', t => {
+test('flush should always be present', (t) => {
   const server = createServer(
     undefined,
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -434,7 +434,7 @@ test('flush should always be present', t => {
     .then(() => t.pass());
 });
 
-test('should not compress response when "Cache-Control: no-transform"', t => {
+test('should not compress response when "Cache-Control: no-transform"', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -453,7 +453,7 @@ test('should not compress response when "Cache-Control: no-transform"', t => {
     .then(() => t.pass());
 });
 
-test('when "Accept-Encoding: deflate"', t => {
+test('when "Accept-Encoding: deflate"', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -469,7 +469,7 @@ test('when "Accept-Encoding: deflate"', t => {
     .then(() => t.pass());
 });
 
-test('when "Accept-Encoding: deflate, gzip"', t => {
+test('when "Accept-Encoding: deflate, gzip"', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -485,7 +485,7 @@ test('when "Accept-Encoding: deflate, gzip"', t => {
     .then(() => t.pass());
 });
 
-test('req.flush should flush the response', t => {
+test('req.flush should flush the response', (t) => {
   return new Promise((resolve, reject) => {
     let chunks = 0;
     let next: ReturnType<typeof writeAndFlush>;
@@ -518,7 +518,7 @@ test('req.flush should flush the response', t => {
   }).then(() => t.pass());
 });
 
-test('when "Accept-Encoding: deflate, gzip, br"', t => {
+test('when "Accept-Encoding: deflate, gzip, br"', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -592,7 +592,11 @@ function after(
 
 function noop() {}
 
-function writeAndFlush(stream: ServerResponse, count: number, buf: Buffer): () => void {
+function writeAndFlush(
+  stream: ServerResponse,
+  count: number,
+  buf: Buffer
+): () => void {
   var writes = 0;
 
   return function () {
