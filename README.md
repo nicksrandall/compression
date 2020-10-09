@@ -18,3 +18,8 @@ const server = http.createServer(compression((req, res) => {
 
 server.listen(3000);
 ```
+
+## Acknowledgements
+This library is basically a typescript re-write of the very popular `compression` library on NPM maintained by the Express.js team. 
+I couldn't have done this without their work.
+
