@@ -142,7 +142,7 @@ const Compression = (opts: Options = {}): Middleware => {
       vary(res, 'Accept-Encoding');
 
       // content-length below threshold
-      const contentLength = res.getHeader('Content-Length') as number; 
+      const contentLength = res.getHeader('Content-Length') as number;
       if (contentLength < threshold || length < threshold) {
         nocompress();
         return;
@@ -198,7 +198,7 @@ const Compression = (opts: Options = {}): Middleware => {
       res.setHeader('Content-Encoding', method);
       res.removeHeader('Content-Length');
 
-      stream.on('data', chunk => {
+      stream.on('data', (chunk) => {
         if (_write.call(res, chunk, 'utf8') === false) {
           stream!.pause();
         }

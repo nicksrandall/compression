@@ -3,7 +3,7 @@ import request from 'supertest';
 import test from 'ava';
 import compression, { Options } from './index';
 
-test('should skip HEAD', t => {
+test('should skip HEAD', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -20,7 +20,7 @@ test('should skip HEAD', t => {
     .then(() => t.pass());
 });
 
-test('should skip unknown accept-encoding', t => {
+test('should skip unknown accept-encoding', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -37,7 +37,7 @@ test('should skip unknown accept-encoding', t => {
     .then(() => t.pass());
 });
 
-test('should skip if content-encoding already set', t => {
+test('should skip if content-encoding already set', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -55,7 +55,7 @@ test('should skip if content-encoding already set', t => {
     .then(() => t.pass());
 });
 
-test('should set Vary', t => {
+test('should set Vary', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -72,7 +72,7 @@ test('should set Vary', t => {
     .then(() => t.pass());
 });
 
-test('should set Vary even if Accept-Encoding is not set', t => {
+test('should set Vary even if Accept-Encoding is not set', (t) => {
   const server = createServer(
     { threshold: 1000 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -89,7 +89,7 @@ test('should set Vary even if Accept-Encoding is not set', t => {
     .then(() => t.pass());
 });
 
-test('should not set Vary if Content-Type does not pass filter', t => {
+test('should not set Vary if Content-Type does not pass filter', (t) => {
   const server = createServer(
     {},
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -105,7 +105,7 @@ test('should not set Vary if Content-Type does not pass filter', t => {
     .then(() => t.pass());
 });
 
-test('should set Vary for HEAD request', t => {
+test('should set Vary for HEAD request', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -121,7 +121,7 @@ test('should set Vary for HEAD request', t => {
     .then(() => t.pass());
 });
 
-test('should transfer chunked', t => {
+test('should transfer chunked', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -137,7 +137,7 @@ test('should transfer chunked', t => {
     .then(() => t.pass());
 });
 
-test('should remove Content-Length for chunked', t => {
+test('should remove Content-Length for chunked', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -154,7 +154,7 @@ test('should remove Content-Length for chunked', t => {
     .then(() => t.pass());
 });
 
-test('should work with encoding arguments', t => {
+test('should work with encoding arguments', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
@@ -172,40 +172,7 @@ test('should work with encoding arguments', t => {
     .then(() => t.pass());
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-test('when "Accept-Encoding: deflate, gzip, br"', t => {
+test('when "Accept-Encoding: deflate, gzip, br"', (t) => {
   const server = createServer(
     { threshold: 0 },
     (_req: IncomingMessage, res: ServerResponse) => {
